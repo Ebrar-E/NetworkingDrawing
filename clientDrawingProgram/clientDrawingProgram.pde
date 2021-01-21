@@ -185,8 +185,8 @@ void draw() {
     input = input.substring(0,input.indexOf("\n"));  // Only up to the newline
     data = int(split(input, ' '));  // Split values into an array
     // Draw line using received coords
-    stroke(ink);
-     line(data[0], data[1], data[2], data[3], data[4]); 
+     line(data[0], data[1], data[2], data[3]); 
+     strokeWeight(data[4]);
   } 
 }//end of draw
 
