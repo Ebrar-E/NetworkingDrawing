@@ -172,12 +172,13 @@ void draw() {
   if (mousePressed == true) {
     if (ciz == true && mouseX>canvasX  && mouseX<canvasX+canvasWidth  && mouseY>canvasY && mouseY<canvasY+canvasHeight) {
     fill(ink);
-    strokeWeight(strokeW);
     stroke(ink);
+    strokeWeight(strokeW);
     line(mouseX, mouseY, pmouseX, pmouseY);
   } 
     // Send mouse coords to other person
-    c.write(pmouseX + " " + pmouseY + " " + mouseX + " " + mouseY + "\n" + strokeW + " ");
+    c.write(pmouseX + " " + pmouseY + " " + mouseX + " " + mouseY + " " + int(strokeW) + "\n");
+  int(strokeW);
   }
   //receiving from server
   if (c.available() > 0) { 
@@ -185,8 +186,9 @@ void draw() {
     input = input.substring(0,input.indexOf("\n"));  // Only up to the newline
     data = int(split(input, ' '));  // Split values into an array
     // Draw line using received coords
-     line(data[0], data[1], data[2], data[3]); 
+    stroke(ink);
      strokeWeight(data[4]);
+     line(data[0], data[1], data[2], data[3]); 
   } 
 }//end of draw
 
