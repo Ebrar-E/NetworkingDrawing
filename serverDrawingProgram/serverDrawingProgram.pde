@@ -195,7 +195,7 @@ void draw() {
 
 
 void keyPressed() {
-  //to remind if you clicked CTRL or SHIFT 
+  //to remind if you clicked 
   if (key == CODED) {
     if (keyCode == CONTROL) 
       controlDown = true;
