@@ -35,9 +35,9 @@ color backgroundColor=#0B032D, textColor=#FFFFFF, reset=#FFFFFF, quitButColor=#F
 color quitButHoverOver=#D30F15, buttonColor=#843B62, buttonHoverOver=#621940, strokeColor=#F67E7D, buttonColor2=#FFB997, buttonHoverOver2=#F67E7D;
 //
 //color palette
-color cadBlue=#7DB1B5, sage=#A8AE84, vegasG=#D0C176, yelCrayola=#E7C373;
-color dgreen=#636940, fgreen=#59A96A, celandon=#9BDEAC, mMint=#B4E7CE;
-color jet=#353745, lgray=#7C90A0, grullo=#B5AA9D, ashG=#B9B7A7;
+color cadBlue=#648D90, sage=#868B69, vegasG=#A69A5E, yelCrayola=#B89B5C;
+color dgreen=#4F5433, fgreen=#478754, celandon=#7CB189, mMint=#90B8A4;
+color jet=#2A2C37, lgray=#637380, grullo=#90887D, ashG=#949285;
 //canvas
 float canvasX, canvasY, canvasWidth, canvasHeight;
 //quit button
@@ -177,8 +177,7 @@ void draw() {
     line(mouseX, mouseY, pmouseX, pmouseY);
   } 
     // Send mouse coords to other person
-    c.write(pmouseX + " " + pmouseY + " " + mouseX + " " + mouseY + " " + int(strokeW) + "\n");
-  int(strokeW);
+    c.write(pmouseX + " " + pmouseY + " " + mouseX + " " + mouseY + " " + int(strokeW) + " " + ink + "\n");
   }
   //receiving from server
   if (c.available() > 0) { 
@@ -186,8 +185,8 @@ void draw() {
     input = input.substring(0,input.indexOf("\n"));  // Only up to the newline
     data = int(split(input, ' '));  // Split values into an array
     // Draw line using received coords
-    stroke(ink);
      strokeWeight(data[4]);
+     stroke(data[5]);
      line(data[0], data[1], data[2], data[3]); 
   } 
 }//end of draw

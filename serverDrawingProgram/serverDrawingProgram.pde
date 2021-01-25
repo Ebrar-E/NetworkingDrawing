@@ -178,8 +178,8 @@ void draw() {
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
     // Send mouse coords to other person 
-    s.write (pmouseX + " " + pmouseY + " " + mouseX + " " + mouseY + " " + strokeW + "\n" );
-  }
+    s.write (pmouseX + " " + pmouseY + " " + mouseX + " " + mouseY + " " + int(strokeW) + " " + ink + "\n" );
+ }
   //receiving 
     c = s.available();
   if (c != null) {
@@ -187,8 +187,8 @@ void draw() {
     input = input.substring(0, input.indexOf("\n"));  // Only up to the newline
     data = int(split(input, ' '));  // Split values into an array
     // Draw line using received coords
-    stroke(ink);
     strokeWeight(data[4]); 
+    stroke(data[5]);
     line(data[0], data[1], data[2], data[3]); 
   }
 }//end of draw
